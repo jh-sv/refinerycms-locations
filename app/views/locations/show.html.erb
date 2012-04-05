@@ -1,0 +1,50 @@
+<% content_for :body_content_title do %>
+  <%= @location.name %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  
+  <div>
+    <h3>Name</h3>
+    <%=raw @location.name %>
+  </div>
+  
+  <div>
+    <h3>Address</h3>
+    <%=raw @location.address %>
+  </div>
+  
+  <div>
+    <h3>Phone</h3>
+    <%=raw @location.phone %>
+  </div>
+  
+  <div>
+    <h3>Hours</h3>
+    <%=raw @location.hours %>
+  </div>
+  
+  <div>
+    <h3>Longitude</h3>
+    <%=raw @location.longitude %>
+  </div>
+  
+  <div>
+    <h3>Latitude</h3>
+    <%=raw @location.latitude %>
+  </div>
+  
+<% end %>
+
+<% content_for :body_content_right do %>
+  <h2><%= t('.other') %></h2>
+  <ul id="locations">
+    <% @locations.each do |location| %>
+      <li>
+        <%= link_to location.name, location_url(location) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>
