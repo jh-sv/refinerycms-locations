@@ -1,0 +1,50 @@
+<%= stylesheet_link_tag "locations" %>
+<%= javascript_include_tag "http://maps.google.com/maps?file=api&v=2&sensor=false&key=ADD_YOUR_KEY_HERE", "http://gmaps-utility-library.googlecode.com/svn/trunk/markermanager/release/src/markermanager.js" %>
+<script type="text/javascript">
+	var markers = [];
+	var map;
+	<% @locations.each_with_index do |location, i| %>
+		$('#location_link_<%=i%>').live('click', function() {
+			markers[<%=i%>].openInfoWindowHtml(markers[<%=i%>].descr);
+			map.panTo(new GLatLng(<%=location.latitude%>,<%=location.longitude%>));
+		});
+	<% end %>
+	window.onload = function initialize() {
+		if (GBrowserIsCompatible()) {
+			map = new GMap2(document.getElementById("map_canvas"));
+			map.setCenter(new GLatLng(37.8046,-122.2703), 9);
+			map.setUIToDefault();
+			var mgr = new MarkerManager(map);
+			var icn = new GIcon();
+			icn.image = "/images/pointer.png";
+			icn.size = new GSize(21,34);
+			icn.iconAnchor = new GPoint(10,34);
+			icn.infoWindowAnchor = new GPoint(10,0);
+			icn.shadow = "/images/shadow50.png";
+			icn.shadow_size = (37,34);
+			<% @locations.each_with_index do |location, i| %>
+			  var marker = new GMarker(new GLatLng(<%= location.latitude %>,<%= location.longitude %>), {icon:icn, click: true});
+		    marker.descr = "<p class='gmap'><span class='gtitle'><%= location.name %></span><br /><%= location.address %><br /><%= location.phone %><br /><%= location.hours %></p>"
+		    GEvent.addListener(marker, "click", function(){this.openInfoWindowHtml(this.descr);});
+				mgr.addMarker(marker, 1);
+				markers[<%=i%>] = marker;
+				delete marker;
+			<% end %>
+			mgr.refresh();
+		}
+	};
+</script>
+
+<% content_for :body_content_left do %>
+	<div id="map_canvas" style="width: 610px; height: 550px; margin-left: 10px;"></div>
+<% end %>
+
+<% content_for :body_content_right do %>
+	<% @locations.each_with_index do |location, i| %>
+		<div id="location_link_<%=i%>" class="location_link" style="margin-bottom: 10px;">
+			<%= location.name %><br/><%= location.address %>
+		</div>
+	<% end %>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>
