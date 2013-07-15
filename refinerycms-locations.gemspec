@@ -9,4 +9,7 @@ Gem::Specification.new do |s|
   s.summary       = 'Ruby on Rails Locations engine for Refinery CMS'
   s.require_paths = %w(lib)
   s.files         = Dir['lib/**/*', 'config/**/*', 'app/**/*']
+  s.add_development_dependency("rspec", [">= 0"])
+  s.add_development_dependency("rake", [">= 0"])
+  s.add_development_dependency("debugger", [">= 0"])
 end
