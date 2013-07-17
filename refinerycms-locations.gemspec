@@ -1,3 +1,8 @@
+# Encoding: UTF-8
+require File.expand_path('../lib/refinery/locations/version', __FILE__)
+
+version = Refinery::Locations::Version.to_s
+
 Gem::Specification.new do |s|
   s.name          = 'refinerycms-locations'
   s.version       = '0.1.0'
@@ -10,6 +15,9 @@ Gem::Specification.new do |s|
   s.require_paths = %w(lib)
   s.files         = Dir['lib/**/*', 'config/**/*', 'app/**/*']
   s.add_development_dependency("rspec", [">= 0"])
+  s.add_development_dependency("sqlite3", [">= 0"])
+  s.add_development_dependency("refinerycms", [">= 0"])
+  s.add_development_dependency("refinerycms-testing", [">= 0"])
   s.add_development_dependency("rake", [">= 0"])
   s.add_development_dependency("debugger", [">= 0"])
 end

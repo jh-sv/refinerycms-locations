@@ -1,10 +1,11 @@
-Refinery::Application.routes.draw do
-  resources :locations
+Refinery::Core::Engine.routes.draw do
+  namespace :locations do
+    root :to => "locations#index"
+  end
 
-  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
-    resources :locations do
-      collection do
-        post :update_positions
+  namespace :locations do
+    namespace :admin, :path => "/refinery" do
+      scope :path => "/locations" do
       end
     end
   end

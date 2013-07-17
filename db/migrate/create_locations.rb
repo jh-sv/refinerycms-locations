@@ -1,7 +1,7 @@
 class CreateLocations < ActiveRecord::Migration
 
   def self.up
-    create_table :locations do |t|
+    create_table :refinery_locations do |t|
       t.string :name
       t.string :address
       t.string :phone
@@ -23,7 +23,7 @@ class CreateLocations < ActiveRecord::Migration
 
     Page.delete_all({:link_url => "/locations"})
 
-    drop_table :locations
+    drop_table :refinery_locations
   end
 
 end
