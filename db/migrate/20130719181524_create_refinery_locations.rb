@@ -17,8 +17,6 @@ class CreateRefineryLocations < ActiveRecord::Migration
       t.timestamps
     end
 
-    load(Rails.root.join('db', 'seeds', 'locations.rb'))
-
   end
 
   def down
