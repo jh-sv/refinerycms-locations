@@ -13,6 +13,7 @@ class CreateRefineryLocations < ActiveRecord::Migration
       t.string :longitude
       t.string :latitude
       t.integer :position
+      t.boolean :online
 
       t.timestamps
     end
