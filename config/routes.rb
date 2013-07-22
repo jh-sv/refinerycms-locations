@@ -4,7 +4,7 @@ Refinery::Core::Engine.routes.draw do
   end
 
   namespace :locations do
-    namespace :admin, :path => "/refinery" do
+    namespace :admin, :path => "/admin" do
       scope :path => "/locations" do
       end
     end

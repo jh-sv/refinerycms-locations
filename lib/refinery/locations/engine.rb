@@ -10,6 +10,7 @@ module Refinery
           plugin.pathname = root
           plugin.name = "refinerycms_locations"
           plugin.url = proc { "/refinery/admin/locations" }
+          plugin.activity = { :class_name => :'refinery/locations/location' }
         end
       end
 

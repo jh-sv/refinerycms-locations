@@ -1,4 +1,5 @@
 require 'refinerycms-core'
+require 'refinerycms-settings'
 
 module Refinery
   autoload :LocationsGenerator, 'generators/refinery/locations/locations_generator'
