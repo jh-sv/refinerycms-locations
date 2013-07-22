@@ -9,4 +9,6 @@ Refinery::Core::Engine.routes.draw do
       end
     end
   end
+
+  match '/refinery/locations' => "locations/admin/locations#index"
 end
