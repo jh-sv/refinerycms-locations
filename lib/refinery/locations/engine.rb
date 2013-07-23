@@ -5,10 +5,10 @@ module Refinery
 
       isolate_namespace Refinery::Locations
 
-      initializer "register refinerycms_locations plugin" do
+      initializer "register refinery_locations plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
-          plugin.name = "refinerycms_locations"
+          plugin.name = "refinery_locations"
           plugin.url = proc {  Refinery::Core::Engine.routes.url_helpers.locations_admin_locations_path }
           plugin.activity = { :class_name => :'refinery/locations/location' }
         end

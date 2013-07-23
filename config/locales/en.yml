@@ -1,12 +1,8 @@
 en:
-  shared:
-    admin:
-      image_picker:
-        image: image
-  plugins:
-    locations:
-      title: Locations
-  admin:
+  refinery:
+    plugins:
+      locations:
+        title: Refinery Locations
     locations:
       index:
         create_new: Create a new Location
