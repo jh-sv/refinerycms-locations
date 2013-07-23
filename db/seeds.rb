@@ -1,5 +1,5 @@
 User.find(:all).each do |user|
-  user.plugins.create(:name => "locations",
+  user.plugins.create(:name => "refinery_locations",
                       :position => (user.plugins.maximum(:position) || -1) +1)
 end
 
