@@ -9,8 +9,7 @@ module Refinery
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
           plugin.name = "refinerycms_locations"
-          debugger
-          plugin.url = proc {  Refinery::Core::Engine.routes.url_helpers.locations_admin_location_path }
+          plugin.url = proc {  Refinery::Core::Engine.routes.url_helpers.locations_admin_locations_path }
           plugin.activity = { :class_name => :'refinery/locations/location' }
         end
       end
