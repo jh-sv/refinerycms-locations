@@ -3,8 +3,8 @@ Refinery::Core::Engine.routes.draw do
     root :to => "locations#index"
   end
 
-  namespace :locations, :path => Refinery::Locations.page_url do
-    namespace :admin, :path => Refinery::Core.backend_route do
+  namespace :locations, :path => '' do
+    namespace :admin, :path => 'refinery/locations' do
     	resources :locations
     end
   end
