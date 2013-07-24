@@ -2,6 +2,10 @@ module Refinery
   module Locations
     include ActiveSupport::Configurable
 
+    config_accessor :page_url
+
+    self.page_url = "/location"
+
     @@user_class_name = nil
     class << self
       def user_class=(class_name)
