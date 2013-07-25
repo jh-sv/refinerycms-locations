@@ -7,6 +7,7 @@ module Refinery
     self.page_url = "/location"
 
     @@user_class_name = nil
+    
     class << self
       def user_class=(class_name)
         if class_name.is_a?(Class)
