@@ -9,7 +9,7 @@ module Refinery
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
           plugin.name = "refinery_locations"
-          plugin.url = proc {  'locations/locations' }
+          plugin.url = proc {  '/locations/locations' }
           plugin.activity = { :class_name => :'refinery/locations/location' }
         end
       end
