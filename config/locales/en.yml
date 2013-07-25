@@ -2,7 +2,7 @@ en:
   refinery:
     plugins:
       refinery_locations:
-        title: Refinery Locations
+        title: Locations
     refinery_locations:
       index:
         create_new: Create a new Location
