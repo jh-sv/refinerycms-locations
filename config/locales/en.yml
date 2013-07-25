@@ -3,17 +3,19 @@ en:
     plugins:
       refinery_locations:
         title: Locations
-    refinery_locations:
-      index:
-        create_new: Create a new Location
-        reorder: Reorder Locations
-        reorder_done: Done Reordering Locations
-        sorry_no_results: Sorry! There are no results found.
-        no_items_yet: There are no Locations yet. Click "Create a new Location" to add your first location.
+    locations:
+      admin:
+        locations:
+          index:
+            create_new: Create a new Location
+            reorder: Reorder Locations
+            reorder_done: Done Reordering Locations
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Locations yet. Click "Create a new Location" to add your first location.
       location:
         view_live: View this location live <br/><em>(opens in a new window)</em>
         edit: Edit this location
         delete: Remove this location forever
-  refinery_locations:
+  locations:
     show:
       other: Other Locations

@@ -5,17 +5,17 @@
     </li>
   <% end %>
   <li>
-    <%= link_to t('.create_new'), refinery.new_locations_admin_location_path,
+    <%= link_to t('create_new', :scope => 'refinery.locations.admin.locations.index'), refinery.new_locations_admin_location_path,
                  :class => "add_icon" %>
   </li>
 <% if !searching? && ::Refinery::Locations::Admin::LocationsController.sortable? && ::Refinery::Locations::Location.any? %>
   <li>
-    <%= link_to t('.reorder', :what => "Locations"),
+    <%= link_to t('reorder', :scope => 'refinery.locations.admin.locations.index', :what => "Locations"),
                  refinery.locations_admin_locations_path,
                  :id => "reorder_action",
                  :class => "reorder_icon" %>
 
-    <%= link_to t('.reorder_done', :what => "Locations"),
+    <%= link_to t('reorder_done', :scope => 'refinery.locations.admin.locations.index', :what => "Locations"),
                  refinery.locations_admin_locations_path,
                  :id => "reorder_action_done",
                  :style => "display: none;",
