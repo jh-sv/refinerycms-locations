@@ -44,11 +44,6 @@
     <%= f.text_field :phone, :class => 'larger widest'  -%>
   </div>
 
-  <div class='field'>
-    <%= f.label :hours -%>
-    <%= f.text_field :hours, :class => 'larger widest'  -%>
-  </div>
-
    <div class='field'>
     <%= f.label :longitude -%>
     <%= f.text_field :longitude, :class => 'larger widest'  -%>
@@ -59,15 +54,9 @@
     <%= f.text_field :longitude, :class => 'larger widest'  -%>
   </div>
 
-   <div class='field'>
-    <%= f.label :online -%>
-    <%= f.select :online, [['True', true], ['False', false]] -%>
-  </div>
-
   <div class='field'>
     <%= f.label :online -%>
     <%= f.check_box :online, :checked => @location[:online]  -%>
-
   </div>
 
   <div class='field'>
