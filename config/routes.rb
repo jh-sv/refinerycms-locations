@@ -9,4 +9,10 @@ Refinery::Core::Engine.routes.draw do
     end
   end
 
+  namespace :locations, :path => '' do
+    namespace :admin, :path => 'refinery/locations' do
+    	resources :imports
+    end
+  end
+
 end

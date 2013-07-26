@@ -5,7 +5,7 @@
     </li>
   <% end %>
   <li>
-    <%= link_to t('.create_new'), refinery.new_locations_admin_import_path,
+    <%= link_to t('refinery.locations.admin.imports.index.create_new'), refinery.new_locations_admin_import_path,
                  :class => "add_icon" %>
   </li>
 <% if !searching? && ::Refinery::Locations::Admin::ImportsController.sortable? && ::Refinery::Locations::Import.any? %>
@@ -26,8 +26,8 @@
 <hr />
 <ul>
   <li>
-    <%= link_to t('refinery.locations.location.show.switch'), 
-        refinery.locations_admin_imports_path,
+    <%= link_to t('refinery.locations.admin.imports.show.switch'), 
+        refinery.locations_admin_locations_path,
         :class => "layout_edit_icon" -%>
   </li>
 </ul>

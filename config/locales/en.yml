@@ -16,7 +16,7 @@ en:
             switch: Switch to Imports
         imports:
           index:
-            create_new: Create a new Imports
+            create_new: Create a new Import
             reorder: Reorder Imports
             reorder_done: Done Reordering Imports
             sorry_no_results: Sorry! There are no results found.

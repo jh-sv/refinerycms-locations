@@ -5,7 +5,7 @@
     </li>
   <% end %>
   <li>
-    <%= link_to t('create_new', :scope => 'refinery.locations.admin.locations.index'), refinery.new_locations_admin_location_path,
+    <%= link_to t('refinery.locations.admin.locations.index.create_new'), refinery.new_locations_admin_location_path,
                  :class => "add_icon" %>
   </li>
 <% if !searching? && ::Refinery::Locations::Admin::LocationsController.sortable? && ::Refinery::Locations::Location.any? %>
@@ -22,4 +22,12 @@
                  :class => "reorder_icon" %>
   </li>
 <% end %>
+</ul>
+<hr />
+<ul>
+  <li>
+    <%= link_to t('refinery.locations.admin.locations.show.switch'), 
+        refinery.locations_admin_imports_path,
+        :class => "layout_edit_icon" -%>
+  </li>
 </ul>

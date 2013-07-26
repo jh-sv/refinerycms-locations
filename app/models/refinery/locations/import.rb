@@ -5,7 +5,7 @@ module Refinery
 
     	belongs_to :attached_file, :class_name => '::Refinery::Resource'
     	
-      attr_accessible :filename, :status
+      attr_accessible :filename, :status, :attached_file_id
 
       acts_as_indexed :fields => [:filename, :status]
 
