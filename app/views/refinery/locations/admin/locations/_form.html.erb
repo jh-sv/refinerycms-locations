@@ -64,6 +64,38 @@
     <%= f.select :online, [['True', true], ['False', false]] -%>
   </div>
 
+  <div class='field'>
+    <%= f.label :online -%>
+    <%= f.check_box :online, :checked => @location[:online]  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :women -%>
+    <%= f.check_box :women, :checked => @location[:women]  -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :handbags -%>
+    <%= f.check_box :handbags, :checked => @location[:handbags]  -%>
+  </div>
+  <div class='field'>
+    <%= f.label :shoes -%>
+    <%= f.check_box :shoes, :checked => @location[:shoes]  -%>
+  </div>
+  <div class='field'>
+    <%= f.label :eyewear -%>
+    <%= f.check_box :eyewear, :checked => @location[:eyewear]  -%>
+  </div>
+  <div class='field'>
+    <%= f.label :jewelry -%>
+    <%= f.check_box :jewelry, :checked => @location[:jewelry]  -%>
+  </div>
+  <div class='field'>
+    <%= f.label :textile -%>
+    <%= f.check_box :textile, :checked => @location[:textile]  -%>
+  </div>
+
 
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
