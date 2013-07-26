@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'refinerycms-testing'
 # Configure Rails Environment
 ENV["RAILS_ENV"] ||= 'test'
 
@@ -15,6 +16,9 @@ RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.filter_run :focus => true
   config.run_all_when_everything_filtered = true
+	config.include Devise::TestHelpers, :type => :controller
+  config.extend  ::Refinery::Testing::ControllerMacros::Authentication, :type => :controller
+  config.extend  ::Refinery::Testing::RequestMacros::Authentication, :type => :request
 end
 
 # set javascript driver for capybara
