@@ -3,9 +3,7 @@ module Refinery
 		module Admin
 			class LocationsController < ::Refinery::AdminController
 
-			  crudify :'refinery/locations/location',
-			          :title_attribute => 'name'
-
+			  crudify :'refinery/locations/location'
 		  end
 		end
 	end		
