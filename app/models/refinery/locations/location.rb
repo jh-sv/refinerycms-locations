@@ -16,6 +16,16 @@ module Refinery
 			def full_street_address
 				"#{self.address}, #{self.city}, #{self.state_or_province} #{self.zip}"
 			end
+
+			# Return a to_geojson_point version of the coordinates
+
+			def to_geojson_point
+				if self.longitude && self.latitude
+					"{ 'type': 'Point', 'coordinates': [#{self.longitude}, #{self.latitude}]}"
+				else 
+					nil
+				end
+			end
 		end
 	end
 end

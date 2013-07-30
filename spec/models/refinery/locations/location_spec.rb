@@ -36,5 +36,35 @@ module Refinery
 			  end
 			end
 		end
+
+		describe Location, "to_geojson_point" do
+			before :each do
+			  @location = Location.make!(
+			  	:address => '125 W 117th Street',
+			  	:city => 'New York',
+			  	:state_or_province => 'New York',
+			  	:zip => '10026'
+			  	)
+			end
+
+			describe "on success" do
+				it "should return a GEOJSON point version of a coordinate" do
+					@location.to_geojson_point.should == "{ 'type': 'Point', 'coordinates': [#{@location.longitude}, #{@location.latitude}]}"
+				end
+			end
+
+			describe "on failure" do
+			  it "should return nil if self.latitude is blank" do
+			  	@location.latitude = nil
+			    @location.to_geojson_point.should be_nil
+			  end
+
+			  it "should return nil if self.longitude is blank" do
+			  	@location.longitude = nil
+			    @location.to_geojson_point.should be_nil
+			  end
+
+			end
+		end
 	end
 end
