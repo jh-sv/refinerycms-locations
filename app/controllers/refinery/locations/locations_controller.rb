@@ -6,11 +6,12 @@ module Refinery
       before_filter :find_page
 
       def index
-        render :json=>@locations.to_json
+        render :json=>@locations.map(&:to_geojson_point)
       end
 
       def show
         @location = Location.find(params[:id])
+        render :json=> @location.to_geojson_point
       end
 
     protected
