@@ -11,7 +11,7 @@ module Refinery
 
 			geocoded_by :full_street_address
 			after_validation :geocode 
-			alias_attribute :title, :name
+			alias_attribute :name, :title
 
 			# Aggregate attribute
 			def full_street_address
