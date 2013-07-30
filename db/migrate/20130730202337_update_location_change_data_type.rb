@@ -1,11 +1,15 @@
 class UpdateLocationChangeDataType < ActiveRecord::Migration
   def up
-  	change_column(:refinery_locations, :latitude, :float)
-  	change_column(:refinery_locations, :longitude, :float)
+  	remove_column(:refinery_locations, :latitude)
+  	remove_column(:refinery_locations, :longitude)
+  	add_column(:refinery_locations, :latitude, :float, :default => nil)
+  	add_column(:refinery_locations, :longitude, :float, :default => nil)
   end
 
   def down
-  	change_column(:refinery_locations, :latitude, :string)
-  	change_column(:refinery_locations, :longitude, :string)
+  	remove_column(:refinery_locations, :latitude)
+  	remove_column(:refinery_locations, :longitude)
+  	add_column(:refinery_locations, :latitude, :string, :default => nil)
+  	add_column(:refinery_locations, :longitude, :string, :default => nil)
   end
 end
