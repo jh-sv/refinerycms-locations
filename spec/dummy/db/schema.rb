@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726172553) do
+ActiveRecord::Schema.define(:version => 20130730202337) do
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(:version => 20130726172553) do
     t.string   "website"
     t.string   "phone"
     t.string   "hours"
-    t.string   "longitude"
-    t.string   "latitude"
+    t.float    "longitude",         :limit => 255
+    t.float    "latitude",          :limit => 255
     t.integer  "position"
     t.boolean  "online"
     t.boolean  "women"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20130726172553) do
     t.boolean  "eyewear"
     t.boolean  "jewelry"
     t.boolean  "textile"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "refinery_page_part_translations", :force => true do |t|
