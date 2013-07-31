@@ -6,7 +6,9 @@ Refinery::Core::Engine.routes.append do
 
   # Frontend routes
   namespace :locations do
-    resources :locations, :path => '', :only => [:index, :show]
+    resources :locations, :path => '', :only => [:index, :show, :search] do 
+      get 'search', :on => :collection 
+    end
   end
 
   # Admin routes

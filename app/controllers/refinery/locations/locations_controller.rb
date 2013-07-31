@@ -14,6 +14,27 @@ module Refinery
         render :json=> @location.to_geojson_point
       end
 
+      def search
+        render :json=> {}.to_json and return if params.blank?
+        results = []
+        term = ''
+        if params[:country]
+          term = params[:country]
+          results = Refinery::Locations::Location.find_all_by_country(term)
+        elsif params[:state]
+          term = params[:state]
+          results = Refinery::Locations::Location.find_all_by_state_or_province(term)
+        elsif params[:city]
+          term = params[:city] 
+          results = Refinery::Locations::Location.near(term)
+        elsif params[:zip]
+          term = params[:zip]
+          results = Refinery::Locations::Location.near(term)
+        else
+
+        end
+        render :json=> results.map(&:to_geojson_point)
+      end
     protected
 
       def find_all_locations
