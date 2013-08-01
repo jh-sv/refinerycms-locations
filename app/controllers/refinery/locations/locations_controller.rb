@@ -6,7 +6,7 @@ module Refinery
       before_filter :find_page
 
       def index
-        render :json=>@locations.map(&:to_geojson_point)
+        render :json=>@locations
       end
 
       def show
