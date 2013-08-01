@@ -240,6 +240,8 @@ PLATFORMS
 DEPENDENCIES
   autotest-standalone
   debugger
+  factory_girl
+  factory_girl_rails
   faker
   machinist (>= 2.0.0.beta2)
   rake

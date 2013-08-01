@@ -31,3 +31,11 @@ Capybara.javascript_driver = :selenium
 }.flatten.sort.each do |support_file|
   require support_file
 end
+
+# This is a temporary hack to get around some hackery with Devise when
+# using the authentication macros in request specs that are defined in
+# refinerycms-testing. If you remove this line ensure that tests pass
+# in an extension that is testing against this Factory via the
+# authentication macros in refinerycms-testing.
+# 10-11-2011 - Jamie Winsor - jamie@enmasse.com
+require Refinery.roots(:'refinery/authentication').join("app/models/refinery/role.rb")

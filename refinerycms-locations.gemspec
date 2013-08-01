@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   s.add_dependency("geocoder")
   s.add_development_dependency("rspec", [">= 0"])
   s.add_development_dependency("autotest-standalone")
+  s.add_development_dependency("factory_girl")
+  s.add_development_dependency("factory_girl_rails")
   s.add_development_dependency("sqlite3", [">= 0"])
   s.add_development_dependency("refinerycms", [">= 0"])
   s.add_development_dependency("refinerycms-testing", [">= 0"])

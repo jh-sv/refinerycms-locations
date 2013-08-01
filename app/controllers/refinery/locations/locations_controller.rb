@@ -11,7 +11,7 @@ module Refinery
 
       def show
         @location = Location.find(params[:id])
-        render :json=> @location.to_geojson_point
+        render :json=> @location
       end
 
       def search
@@ -33,7 +33,7 @@ module Refinery
         else
 
         end
-        render :json=> results.map(&:to_geojson_point)
+        render :json=> results
       end
     protected
 

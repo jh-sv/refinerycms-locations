@@ -12,6 +12,13 @@ module Refinery
           @import.should be_valid
         end
       end
+
+      describe "on failure" do
+        it 'should not be valid without a filename' do
+          @import.filename = nil
+          @import.should_not be_valid
+        end
+      end
     end
   end
 end
