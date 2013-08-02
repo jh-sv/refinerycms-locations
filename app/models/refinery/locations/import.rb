@@ -1,3 +1,4 @@
+require 'spreadsheet'
 module Refinery
   module Locations
     class Import < Refinery::Core::BaseModel
