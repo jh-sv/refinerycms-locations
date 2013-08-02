@@ -13,6 +13,9 @@ module Refinery
 			after_validation :geocode 
 			alias_attribute :title, :name
 
+			scope :online, where(:online => true)
+			scope :physical, where(:online => false)
+			
 			# Aggregate attribute
 			def full_street_address
 				"#{self.address}, #{self.city}, #{self.state_or_province} #{self.zip}"
