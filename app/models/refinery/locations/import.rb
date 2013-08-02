@@ -10,6 +10,7 @@ module Refinery
       acts_as_indexed :fields => [:filename, :status]
 
       validates :filename, :presence => true
+      alias_attribute :title, :filename
 
       class << self
       	def statii
