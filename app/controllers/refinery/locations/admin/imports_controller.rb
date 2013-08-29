@@ -20,7 +20,7 @@ module Refinery
 
 				    # If the import has a file, it's time to add locations
 				    if @import.attached_file
-				    	@import.process_filename
+				    	@import.process_filename(request)
 				    end
 
 				    unless from_dialog?

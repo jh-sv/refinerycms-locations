@@ -26,8 +26,15 @@ module Refinery
 
       # process the import of the actual filename
 
-      def process_filename
-        spreadsheet = Spreadsheet.open "#{Rails.root}/public/system/refinery/resources/#{self.attached_file.file_uid}"        
+      def process_filename(request)
+
+        #  pass an IO object to Spreadsheet.open
+
+        open "#{request.protocol}#{request.host_with_port}#{Refinery::Resource.last.url}" do |f|
+          spreadsheet = Spreadsheet.open f
+        end
+
+        
         first_worksheet = spreadsheet.worksheet 0
         first_worksheet.each(5) do |row|
           next if row.compact.reject(&:blank?).empty? || row[0] == 'ECOMMERCE'
