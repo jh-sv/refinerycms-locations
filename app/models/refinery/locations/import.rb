@@ -27,12 +27,12 @@ module Refinery
       # process the import of the actual filename
 
       def process_filename(request)
-
+        require 'spreadsheet'
         #  pass an IO object to Spreadsheet.open
 
-        open "#{request.protocol}#{request.host_with_port}#{Refinery::Resource.last.url}" do |f|
-          spreadsheet = Spreadsheet.open f
-        end
+        # this works 100% of the time
+        # spreadsheet = Spreadsheet.open "#{Rails.root}/public/EJStoreLocator1updated.xls"
+
 
         
         first_worksheet = spreadsheet.worksheet 0
@@ -59,6 +59,7 @@ module Refinery
         end
       rescue Exception => e 
         Rails.logger.error("Error processing import #{self.id}: #{e.message}")
+        Rails.logger.error("Inspected Error: #{e.inspect}")
       end
     end
   end
