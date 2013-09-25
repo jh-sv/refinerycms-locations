@@ -29,12 +29,13 @@ module Refinery
       def process_filename(request)
         require 'spreadsheet'
         #  pass an IO object to Spreadsheet.open
-
         # this works 100% of the time
         # spreadsheet = Spreadsheet.open "#{Rails.root}/public/EJStoreLocator1updated.xls"
 
+        open "#{Dragonfly[:refinery_resources].remote_url_for(self.attached_file.file_uid)}" do |f|
+           spreadsheet = Spreadsheet.open f
+        end
 
-        
         first_worksheet = spreadsheet.worksheet 0
         first_worksheet.each(5) do |row|
           next if row.compact.reject(&:blank?).empty? || row[0] == 'ECOMMERCE'
@@ -55,7 +56,7 @@ module Refinery
             l.jewelry = (row[12] ? true : false)
             l.textile = (row[13] ? true : false)            
           end
-          location.save!
+         # location.save!
         end
       rescue Exception => e 
         Rails.logger.error("Error processing import #{self.id}: #{e.message}")

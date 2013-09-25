@@ -1,7 +1,3 @@
-# Encoding: UTF-8
-require File.expand_path('../lib/refinery/locations/version', __FILE__)
-
-version = Refinery::Locations::Version.to_s
 
 Gem::Specification.new do |s|
   s.name          = 'refinerycms-locations'
