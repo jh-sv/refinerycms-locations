@@ -33,7 +33,6 @@ module Refinery
           term = params[:zip]
         end
         
-      else
         results = Refinery::Locations::Location.near(term)  
 
         render :json=> results
