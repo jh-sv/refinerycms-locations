@@ -30,9 +30,14 @@ module Refinery
         end
 
         if params[:zip]
-          term = params[:zip]
+          if term.blank?
+            term = params[:zip]
+          else
+            term << params[:zip]
+          end
         end
-        
+        puts term.length
+
         results = Refinery::Locations::Location.near(term)  
 
         render :json=> results
