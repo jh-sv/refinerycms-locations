@@ -21,12 +21,17 @@ module Refinery
         
         if params[:country]
           term << params[:country]
+          country = true
         end
+
         if params[:state]
           term << ' ' + params[:state]
+          state = true
         end
+
         if params[:city]
           term << ' ' + params[:city] 
+          city = true
         end
 
         if params[:zip]
@@ -36,9 +41,14 @@ module Refinery
             term << params[:zip]
           end
         end
-        puts term.length
 
         results = Refinery::Locations::Location.near(term)  
+
+
+        if params[:city].blank? && params[:state].blank? && params[:zip].blank?
+            results = Refinery::Locations::Location.find_all_by_country(params[:country])
+        end
+
 
         render :json=> results
       end
