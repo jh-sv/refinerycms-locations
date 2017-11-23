@@ -56,7 +56,7 @@ module Refinery
             l.jewelry = (row[12] ? true : false)
             l.textile = (row[13] ? true : false)            
           end
-         # location.save!
+          location.save!
         end
       rescue Exception => e 
         Rails.logger.error("Error processing import #{self.id}: #{e.message}")
