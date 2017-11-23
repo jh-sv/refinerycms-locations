@@ -22,7 +22,7 @@ en:
             sorry_no_results: Sorry! There are no results found.
             no_items_yet: There are no Imports yet. Click "Create a new Import" to add your first import.
           show:
-            switch: Go to Locations
+            switch: Switch to Locations
       location:
         view_live: View this location live <br/><em>(opens in a new window)</em>
         edit: Edit this location
